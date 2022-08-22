@@ -2,18 +2,27 @@ import JsxParser from "react-jsx-parser";
 import "./styles.css";
 import BlocklySplit from "../BlocklySplit/BlocklySplit";
 import "allotment/dist/style.css";
-import { Allotment } from "allotment";
 import { useState } from "react";
+import { components } from "../../../blockly/toolbox";
 
 function BuilderPage() {
-  const [currentWidth, setCurrentWidth] = useState(null);
+  const [currentCode, setCurrentCode] = useState("");
+  console.log(currentCode);
   return (
-    <div style={{ height: "100vh" }}>
-      <Allotment onChange={(sizes) => setCurrentWidth(sizes[0])} minSize={200}>
-        <BlocklySplit width={currentWidth} />
-        <JsxParser jsx={`<h1>Rytas</h1>`} />
-      </Allotment>
-    </div>
+    <>
+      <div style={{ height: "100vh", display: "flex" }}>
+        <div style={{ width: "50%" }}>
+          <BlocklySplit setCurrentCode={setCurrentCode} />
+        </div>
+        <div style={{ width: "50%" }}>
+          <JsxParser
+            jsx={currentCode}
+            components={components}
+            onError={(error) => console.log(error)}
+          />
+        </div>
+      </div>
+    </>
   );
 }
 

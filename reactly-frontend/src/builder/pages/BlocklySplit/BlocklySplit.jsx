@@ -1,13 +1,14 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useBlocklyWorkspace } from "react-blockly";
+import toolbox from "../../../blockly/toolbox";
+import Blockly from "blockly";
 
-function BlocklySplit({ width }) {
-  const [currentXml, setCurrentXml] = useState("");
+function BlocklySplit({ width, setCurrentCode }) {
   const blocklyRef = useRef(null);
 
   const { workspace } = useBlocklyWorkspace({
     ref: blocklyRef,
-    toolboxConfiguration: { kind: "categoryToolbox", contents: [] },
+    toolboxConfiguration: toolbox,
     workspaceConfiguration: {
       zoom: {
         controls: true,
@@ -18,12 +19,17 @@ function BlocklySplit({ width }) {
       },
       trashcan: true,
     },
-    onWorkspaceChange: undefined,
+    onWorkspaceChange: (workspace) => {
+      const code = Blockly.React.workspaceToCode(workspace);
+      setCurrentCode(code);
+    },
   });
 
-  console.log(blocklyRef);
+  // console.log(workspace);
 
-  return <div ref={blocklyRef} style={{ height: "100vh", width: width }}></div>;
+  return (
+    <div ref={blocklyRef} style={{ height: "100vh", width: "100%" }}></div>
+  );
 }
 
 export default BlocklySplit;

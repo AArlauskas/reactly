@@ -1,7 +1,17 @@
-import { ListItemText as MuiListItemText } from "@mui/material";
+import {
+  ListItemText as MuiListItemText,
+  ListItem as MuiListItem,
+  ListItemButton as MuiListItemButton,
+} from "@mui/material";
 
 function ListItemText({ primaryText, secondaryText }) {
-  return <MuiListItemText primary={primaryText} secondary={secondaryText} />;
+  return (
+    <MuiListItem disablePadding>
+      <MuiListItemButton>
+        <MuiListItemText primary={primaryText} secondary={secondaryText} />
+      </MuiListItemButton>
+    </MuiListItem>
+  );
 }
 
 export default ListItemText;

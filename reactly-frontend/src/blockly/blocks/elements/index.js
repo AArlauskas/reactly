@@ -1,5 +1,7 @@
 import "./paragraph";
+import "./image";
 import "./topBar";
+import "./imageList";
 
 import ListCategoryContent from "./lists";
 
@@ -11,6 +13,14 @@ const elementsCategoryContent = {
     {
       kind: "block",
       type: "paragraph",
+    },
+    {
+      kind: "block",
+      type: "image",
+    },
+    {
+      kind: "block",
+      type: "imageList",
     },
     {
       kind: "block",

@@ -14,6 +14,5 @@ Blockly.Blocks["text"] = {
 
 Blockly.React["text"] = (block) => {
   const text = block.getFieldValue("TEXT_OUTPUT");
-  console.log(text);
   return [text, Blockly.React.ORDER_ATOMIC];
 };

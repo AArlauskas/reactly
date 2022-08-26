@@ -1,5 +1,6 @@
 import "./list";
 import "./listItemText";
+import "./divider";
 
 const listCategoryContent = {
   kind: "category",
@@ -12,6 +13,10 @@ const listCategoryContent = {
     {
       kind: "block",
       type: "listItemText",
+    },
+    {
+      kind: "block",
+      type: "divider",
     },
   ],
 };

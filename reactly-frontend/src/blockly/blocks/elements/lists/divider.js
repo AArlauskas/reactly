@@ -5,9 +5,11 @@ Blockly.Blocks["divider"] = {
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.appendDummyInput().appendField("Divider");
+    this.appendStatementInput("MODIFIERS").appendField("Modifiers:");
   },
 };
 
 Blockly.React["divider"] = (block) => {
-  return ["<Divider />", Blockly.React.ORDER_ATOMIC];
+  const modifiers = Blockly.React.statementToCode(block, "MODIFIERS");
+  return `<Divider modifiers={{${modifiers}}}/>`;
 };

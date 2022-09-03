@@ -5,7 +5,9 @@ Blockly.Blocks["listItemText"] = {
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(300);
+    this.appendDummyInput().appendField("List item text");
     this.setTooltip("List item with text");
+    this.appendStatementInput("MODIFIERS").appendField("Modifiers:");
     this.appendValueInput("TEXT_PRIMARY_INPUT").appendField("List item text:");
     this.appendValueInput("TEXT_SECONDARY_INPUT").appendField(
       "List item secondary text:"
@@ -25,9 +27,10 @@ Blockly.React["listItemText"] = (block) => {
     "TEXT_SECONDARY_INPUT",
     Blockly.React.ORDER_ATOMIC
   );
+  const modifiers = Blockly.React.statementToCode(block, "MODIFIERS");
 
   code.push(
-    `<ListItemText primaryText={"${primaryText}"} secondaryText={"${secondaryText}"}/>`
+    `<ListItemText primaryText={"${primaryText}"} secondaryText={"${secondaryText}"} modifiers={{${modifiers}}}/>`
   );
   return code.join("\n");
 };

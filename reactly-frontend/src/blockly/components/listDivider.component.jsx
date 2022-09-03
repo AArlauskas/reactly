@@ -1,7 +1,7 @@
 import { Divider as MuiDivider } from "@mui/material";
 
-function Divider() {
-  return <MuiDivider />;
+function Divider({ modifiers }) {
+  return <MuiDivider style={modifiers} />;
 }
 
 export default Divider;

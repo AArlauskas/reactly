@@ -1,7 +1,11 @@
 import { ImageList as MuiImageList } from "@mui/material";
 
-function ImageList({ cols, children }) {
-  return <MuiImageList cols={cols}>{children}</MuiImageList>;
+function ImageList({ cols, modifiers, children }) {
+  return (
+    <MuiImageList cols={cols} modifiers={modifiers}>
+      {children}
+    </MuiImageList>
+  );
 }
 
 export default ImageList;

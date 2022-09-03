@@ -1,7 +1,7 @@
-import "./paragraph";
 import "./image";
 import "./topBar";
 import "./imageList";
+import "./typography";
 
 import ListCategoryContent from "./lists";
 
@@ -10,10 +10,6 @@ const elementsCategoryContent = {
   name: "Elements",
   contents: [
     ListCategoryContent,
-    {
-      kind: "block",
-      type: "paragraph",
-    },
     {
       kind: "block",
       type: "image",
@@ -25,6 +21,10 @@ const elementsCategoryContent = {
     {
       kind: "block",
       type: "topBar",
+    },
+    {
+      kind: "block",
+      type: "typography",
     },
   ],
 };

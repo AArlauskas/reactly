@@ -4,11 +4,15 @@ import {
   ListItemButton as MuiListItemButton,
 } from "@mui/material";
 
-function ListItemText({ primaryText, secondaryText }) {
+function ListItemText({ primaryText, secondaryText, modifiers }) {
   return (
     <MuiListItem disablePadding>
       <MuiListItemButton>
-        <MuiListItemText primary={primaryText} secondary={secondaryText} />
+        <MuiListItemText
+          primary={primaryText}
+          secondary={secondaryText}
+          style={modifiers}
+        />
       </MuiListItemButton>
     </MuiListItem>
   );

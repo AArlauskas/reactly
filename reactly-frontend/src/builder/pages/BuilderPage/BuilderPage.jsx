@@ -3,7 +3,7 @@ import "./styles.css";
 import BlocklySplit from "../BlocklySplit/BlocklySplit";
 import "allotment/dist/style.css";
 import { useState } from "react";
-import { components } from "../../../blockly/toolbox";
+import { components, functions } from "../../../blockly/toolbox";
 
 function BuilderPage() {
   const [currentCode, setCurrentCode] = useState("");
@@ -16,9 +16,11 @@ function BuilderPage() {
         </div>
         <div style={{ width: "50%" }}>
           <JsxParser
+            bindings={functions}
             jsx={currentCode}
             components={components}
             onError={(error) => console.log(error)}
+            blacklistedAttrs={[]}
           />
         </div>
       </div>

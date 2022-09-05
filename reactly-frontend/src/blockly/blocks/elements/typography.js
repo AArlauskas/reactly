@@ -26,6 +26,8 @@ Blockly.Blocks["typography"] = {
         "VARIANT"
       );
     this.appendValueInput("TEXT_INPUT").appendField("Text");
+    this.appendStatementInput("MODIFIERS").appendField("Modifiers:");
+    this.appendValueInput("ON_CLICK").appendField("On click: ");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
   },
@@ -39,6 +41,17 @@ Blockly.React["typography"] = (block) => {
     Blockly.React.ORDER_ATOMIC
   );
   const variant = block.getFieldValue("VARIANT");
-  code.push(`<Typography variant={"${variant}"} text={"${text}"} />`);
+  const modifiers = Blockly.React.statementToCode(block, "MODIFIERS");
+  const onClick = Blockly.React.valueToCode(
+    block,
+    "ON_CLICK",
+    Blockly.React.ORDER_ATOMIC
+  );
+
+  code.push(
+    `<Typography variant={"${variant}"} text={"${text}"} modifiers={{${modifiers}}} onClick={${
+      onClick || "() => {}"
+    }} /> />`
+  );
   return code.join("\n");
 };

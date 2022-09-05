@@ -4,12 +4,14 @@ import "./imageList";
 import "./typography";
 
 import ListCategoryContent from "./lists";
+import LinksCategoryContent from "./links";
 
 const elementsCategoryContent = {
   kind: "category",
   name: "Elements",
   contents: [
     ListCategoryContent,
+    LinksCategoryContent,
     {
       kind: "block",
       type: "image",

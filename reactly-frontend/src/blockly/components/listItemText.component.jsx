@@ -4,10 +4,10 @@ import {
   ListItemButton as MuiListItemButton,
 } from "@mui/material";
 
-function ListItemText({ primaryText, secondaryText, modifiers }) {
+function ListItemText({ primaryText, secondaryText, modifiers, onClick }) {
   return (
     <MuiListItem disablePadding>
-      <MuiListItemButton>
+      <MuiListItemButton onClick={onClick}>
         <MuiListItemText
           primary={primaryText}
           secondary={secondaryText}

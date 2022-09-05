@@ -1,3 +1,4 @@
+import alignmentCategoryContent from "./alignment";
 import colorsCategoryContent from "./colors";
 import dimensionsCategoryContent from "./dimensions";
 import marginsCategoryContent from "./margins";
@@ -11,6 +12,7 @@ const modifierCategoryContent = {
     marginsCategoryContent,
     dimensionsCategoryContent,
     colorsCategoryContent,
+    alignmentCategoryContent,
   ],
 };
 

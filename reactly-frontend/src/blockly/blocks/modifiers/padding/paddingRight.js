@@ -8,11 +8,19 @@ Blockly.Blocks["paddingRight"] = {
     this.setNextStatement(true);
     this.appendDummyInput()
       .appendField("Padding right")
-      .appendField(new Blockly.FieldNumber(0, 0, null, 1), "PADDING_RIGHT");
+      .appendField(new Blockly.FieldNumber(0, 0, null, 1), "PADDING_RIGHT")
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["px", "px"],
+          ["%", "%"],
+        ]),
+        "UNIT"
+      );
   },
 };
 
 Blockly.React["paddingRight"] = (block) => {
   const padding = block.getFieldValue("PADDING_RIGHT");
-  return `paddingRight: "${padding}px",`;
+  const unit = block.getFieldValue("UNIT");
+  return `paddingRight: "${padding}${unit}",`;
 };

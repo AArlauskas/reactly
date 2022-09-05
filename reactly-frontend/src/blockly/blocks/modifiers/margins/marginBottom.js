@@ -8,11 +8,19 @@ Blockly.Blocks["marginBottom"] = {
     this.setNextStatement(true);
     this.appendDummyInput()
       .appendField("Margin bottom")
-      .appendField(new Blockly.FieldNumber(0, 0, null, 1), "MARGIN_BOTTOM");
+      .appendField(new Blockly.FieldNumber(0, 0, null, 1), "MARGIN_BOTTOM")
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["px", "px"],
+          ["%", "%"],
+        ]),
+        "UNIT"
+      );
   },
 };
 
 Blockly.React["marginBottom"] = (block) => {
   const margin = block.getFieldValue("MARGIN_BOTTOM");
-  return `marginBottom: "${margin}px",`;
+  const unit = block.getFieldValue("UNIT");
+  return `marginBottom: "${margin}${unit}",`;
 };

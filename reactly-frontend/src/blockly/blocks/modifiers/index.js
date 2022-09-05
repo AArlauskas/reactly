@@ -1,3 +1,4 @@
+import colorsCategoryContent from "./colors";
 import dimensionsCategoryContent from "./dimensions";
 import marginsCategoryContent from "./margins";
 import paddingsCategoryContent from "./padding";
@@ -9,6 +10,7 @@ const modifierCategoryContent = {
     paddingsCategoryContent,
     marginsCategoryContent,
     dimensionsCategoryContent,
+    colorsCategoryContent,
   ],
 };
 

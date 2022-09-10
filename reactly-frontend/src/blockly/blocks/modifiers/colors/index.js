@@ -4,6 +4,7 @@ import "./backgroundColor";
 const colorsCategoryContent = {
   kind: "category",
   name: "Colors",
+  colour: "500",
   contents: [
     {
       kind: "block",

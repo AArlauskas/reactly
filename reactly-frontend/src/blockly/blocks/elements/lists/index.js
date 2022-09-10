@@ -5,6 +5,7 @@ import "./divider";
 const listCategoryContent = {
   kind: "category",
   name: "Lists",
+  colour: "300",
   contents: [
     {
       kind: "block",

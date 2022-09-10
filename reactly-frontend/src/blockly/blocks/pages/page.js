@@ -2,6 +2,7 @@ import Blockly from "blockly";
 
 Blockly.Blocks["page"] = {
   init: function () {
+    this.setColour(900);
     this.setTooltip("Website's page");
     this.appendDummyInput()
       .appendField("Page")

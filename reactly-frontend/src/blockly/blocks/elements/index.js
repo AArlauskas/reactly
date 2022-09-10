@@ -9,6 +9,7 @@ import LinksCategoryContent from "./links";
 const elementsCategoryContent = {
   kind: "category",
   name: "Elements",
+  colour: "200",
   contents: [
     ListCategoryContent,
     LinksCategoryContent,

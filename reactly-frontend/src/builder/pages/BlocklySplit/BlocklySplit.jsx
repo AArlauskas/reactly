@@ -24,7 +24,7 @@ function BlocklySplit({ width, setCurrentWorkspace, initialXml }) {
     },
   });
 
-  // console.log(workspace);
+  console.log(blocklyRef);
 
   return (
     <div ref={blocklyRef} style={{ height: "100vh", width: "100%" }}></div>

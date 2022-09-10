@@ -2,7 +2,7 @@ import Blockly from "blockly";
 
 Blockly.Blocks["paddingLeft"] = {
   init: function () {
-    this.setColour(200);
+    this.setColour(775);
     this.setTooltip("Adds padding on left side of element");
     this.setPreviousStatement(true);
     this.setNextStatement(true);

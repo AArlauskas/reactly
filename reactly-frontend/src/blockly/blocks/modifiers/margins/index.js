@@ -7,6 +7,7 @@ import "./marginBottom";
 const marginsCategoryContent = {
   kind: "category",
   name: "Margin",
+  colour: "750",
   contents: [
     {
       kind: "block",

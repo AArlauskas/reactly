@@ -4,7 +4,7 @@ import "./height";
 const dimensionsCategoryContent = {
   kind: "category",
   name: "Dimensions",
-  colour: 200,
+  colour: 700,
   contents: [
     {
       kind: "block",

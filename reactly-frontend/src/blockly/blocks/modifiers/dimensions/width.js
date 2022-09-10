@@ -2,7 +2,7 @@ import Blockly from "blockly";
 
 Blockly.Blocks["width"] = {
   init: function () {
-    this.setColour(200);
+    this.setColour(700);
     this.setTooltip("Sets width of element");
     this.setPreviousStatement(true);
     this.setNextStatement(true);

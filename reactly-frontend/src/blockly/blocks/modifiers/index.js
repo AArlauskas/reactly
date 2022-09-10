@@ -7,6 +7,7 @@ import paddingsCategoryContent from "./padding";
 const modifierCategoryContent = {
   kind: "category",
   name: "Modifiers",
+  colour: "800",
   contents: [
     paddingsCategoryContent,
     marginsCategoryContent,

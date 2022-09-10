@@ -2,7 +2,7 @@ import Blockly from "blockly";
 
 Blockly.Blocks["marginRight"] = {
   init: function () {
-    this.setColour(200);
+    this.setColour(750);
     this.setTooltip("Adds margin on right side of element");
     this.setPreviousStatement(true);
     this.setNextStatement(true);

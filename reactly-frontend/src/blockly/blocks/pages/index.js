@@ -3,7 +3,7 @@ import "./page";
 const pagesCategoryContent = {
   kind: "category",
   name: "Pages",
-  colour: "0",
+  colour: "900",
   contents: [
     {
       kind: "block",

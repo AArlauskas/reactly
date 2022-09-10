@@ -3,6 +3,7 @@ import "./text";
 const inputsCategoryContent = {
   kind: "category",
   name: "Inputs",
+  colour: "400",
   contents: [
     {
       kind: "block",

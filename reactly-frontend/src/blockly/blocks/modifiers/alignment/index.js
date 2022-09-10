@@ -3,6 +3,7 @@ import "./textAlignment";
 const alignmentCategoryContent = {
   name: "Alignment",
   kind: "category",
+  colour: "600",
   contents: [
     {
       kind: "block",

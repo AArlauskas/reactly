@@ -2,7 +2,7 @@ import Blockly from "blockly";
 
 Blockly.Blocks["height"] = {
   init: function () {
-    this.setColour(200);
+    this.setColour(700);
     this.setTooltip("Sets height of element");
     this.setPreviousStatement(true);
     this.setNextStatement(true);

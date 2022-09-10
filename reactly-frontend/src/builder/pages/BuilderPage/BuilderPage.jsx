@@ -22,6 +22,7 @@ function BuilderPage() {
     setCurrentWorkspace(workspace);
     storeCurrentWorkspace(workspace);
     const code = Blockly.React.workspaceToCode(workspace);
+    console.log(code);
     setCurrentCode(code);
   }
 

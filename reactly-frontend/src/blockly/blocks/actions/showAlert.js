@@ -2,7 +2,7 @@ import Blockly from "blockly";
 
 Blockly.Blocks["showAlert"] = {
   init: function () {
-    this.setColour(400);
+    this.setColour(100);
     this.setTooltip("Show an alert");
     this.appendValueInput("TEXT").appendField("Show alert with text");
     this.setOutput(true, "Text");

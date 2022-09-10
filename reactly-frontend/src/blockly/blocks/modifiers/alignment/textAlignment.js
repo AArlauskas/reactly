@@ -2,7 +2,7 @@ import Blockly from "blockly";
 
 Blockly.Blocks["textAlignment"] = {
   init: function () {
-    this.setColor(230);
+    this.setColour(600);
     this.setTooltip("Sets text alignment of element");
     this.setPreviousStatement(true);
     this.setNextStatement(true);

@@ -2,6 +2,7 @@ import Blockly from "blockly";
 
 Blockly.Blocks["image"] = {
   init: function () {
+    this.setColour(200);
     this.appendDummyInput().appendField("Image");
     this.appendStatementInput("MODIFIERS").appendField("Modifiers:");
     this.appendValueInput("ON_CLICK").appendField("On click: ");

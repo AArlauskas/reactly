@@ -2,6 +2,7 @@ import Blockly from "blockly";
 
 Blockly.Blocks["list"] = {
   init: function () {
+    this.setColour(300);
     this.setPreviousStatement(true);
     this.setTooltip("List with possible list items");
     this.appendDummyInput().appendField("List");

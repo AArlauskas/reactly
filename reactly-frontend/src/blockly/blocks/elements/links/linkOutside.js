@@ -2,9 +2,9 @@ import Blockly from "blockly";
 
 Blockly.Blocks["linkOutside"] = {
   init: function () {
+    this.setColour(250);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setColour(300);
     this.appendDummyInput().appendField("Link");
     this.appendStatementInput("MODIFIERS").appendField("Modifiers:");
     this.appendValueInput("ON_CLICK").appendField("On click: ");

@@ -2,7 +2,7 @@ import Blockly from "blockly";
 
 Blockly.Blocks["text"] = {
   init: function () {
-    this.setColour(300);
+    this.setColour(400);
     this.setTooltip("Outputs a text");
     this.appendDummyInput().appendField(
       new Blockly.FieldMultilineInput("Lorem Ipsum"),

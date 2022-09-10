@@ -2,7 +2,7 @@ import Blockly from "blockly";
 
 Blockly.Blocks["marginBottom"] = {
   init: function () {
-    this.setColour(200);
+    this.setColour(750);
     this.setTooltip("Adds margin on bottom of element");
     this.setPreviousStatement(true);
     this.setNextStatement(true);

@@ -2,6 +2,7 @@ import Blockly from "blockly";
 
 Blockly.Blocks["typography"] = {
   init: function () {
+    this.setColour(200);
     this.appendDummyInput().appendField("Text input");
     this.appendDummyInput()
       .appendField("Text variant")
@@ -51,7 +52,7 @@ Blockly.React["typography"] = (block) => {
   code.push(
     `<Typography variant={"${variant}"} text={"${text}"} modifiers={{${modifiers}}} onClick={${
       onClick || "() => {}"
-    }} /> />`
+    }} />`
   );
   return code.join("\n");
 };

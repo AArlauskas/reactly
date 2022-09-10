@@ -2,7 +2,7 @@ import Blockly from "blockly";
 
 Blockly.Blocks["textColor"] = {
   init: function () {
-    this.setColour(220);
+    this.setColour(500);
     this.setTooltip("Sets text color of element");
     this.setPreviousStatement(true);
     this.setNextStatement(true);

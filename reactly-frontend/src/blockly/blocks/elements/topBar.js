@@ -2,6 +2,7 @@ import Blockly from "blockly";
 
 Blockly.Blocks["topBar"] = {
   init: function () {
+    this.setColour(200);
     this.setPreviousStatement(true);
     this.setTooltip("Website's top bar");
     this.appendDummyInput().appendField("Top Bar");

@@ -1,0 +1,8 @@
+.builder-page {
+  display: flex;
+  max-height: calc(100vh - 60px);
+}
+
+.blockly-space {
+  height: calc(100vh - 60px);
+}

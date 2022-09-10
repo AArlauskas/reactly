@@ -4,10 +4,12 @@ import BlocklySplit from "../BlocklySplit/BlocklySplit";
 import "allotment/dist/style.css";
 import Blockly from "blockly";
 import { useState } from "react";
-import { components, functions } from "../../../blockly/toolbox";
+import toolboxes, { components, functions } from "../../../blockly/toolbox";
+import { ApplicationBar } from "../../components/ApplicationBar";
 
 function BuilderPage() {
   const [currentWorkspace, setCurrentWorkspace] = useState(null);
+  const [currentToolboxId, setCurrentToolboxId] = useState("0");
   const [currentCode, setCurrentCode] = useState(null);
 
   function getInitialXml() {
@@ -33,13 +35,31 @@ function BuilderPage() {
     window.localStorage.setItem("workspace", xml);
   }
 
+  const onCurrentToolboxChange = (id) => {
+    setCurrentToolboxId(id);
+  };
+
+  const getCurrentToolBox = () => {
+    const result = toolboxes.find(
+      (toolbox) => toolbox.key === currentToolboxId
+    );
+    console.log(result);
+    return result;
+  };
+
   return (
     <>
-      <div style={{ height: "100vh", display: "flex" }}>
+      <ApplicationBar
+        onToolboxOptionChange={onCurrentToolboxChange}
+        toolboxOptions={toolboxes}
+        selectedToolboxId={currentToolboxId}
+      />
+      <div className="builder-page">
         <div style={{ width: "50%" }}>
           <BlocklySplit
             setCurrentWorkspace={updateCurrentWorkspace}
             initialXml={getInitialXml()}
+            toolbox={getCurrentToolBox()}
           />
         </div>
         <div style={{ width: "50%" }}>

@@ -13,4 +13,16 @@ const contents = [
   modifierCategoryContent,
 ];
 
-export default contents;
+const compoentsContents = [
+  elementsCategoryContent,
+  pagesCategoryContent,
+  inputsCategoryContent,
+];
+const functionContents = [actionsCategoryContent];
+const stylingContents = modifierCategoryContent.contents;
+
+const mapChildrenContents = (contents) => {
+  const result = {};
+};
+
+export { compoentsContents, functionContents, stylingContents, contents };

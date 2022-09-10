@@ -1,8 +1,7 @@
 import { useRef } from "react";
 import { useBlocklyWorkspace } from "react-blockly";
-import toolbox from "../../../blockly/toolbox";
 
-function BlocklySplit({ width, setCurrentWorkspace, initialXml }) {
+function BlocklySplit({ width, setCurrentWorkspace, initialXml, toolbox }) {
   const blocklyRef = useRef(null);
 
   const { workspace } = useBlocklyWorkspace({
@@ -24,10 +23,14 @@ function BlocklySplit({ width, setCurrentWorkspace, initialXml }) {
     },
   });
 
-  console.log(blocklyRef);
+  // console.log(workspace);
 
   return (
-    <div ref={blocklyRef} style={{ height: "100vh", width: "100%" }}></div>
+    <div
+      ref={blocklyRef}
+      className="blockly-space"
+      style={{ width: "100%" }}
+    ></div>
   );
 }
 

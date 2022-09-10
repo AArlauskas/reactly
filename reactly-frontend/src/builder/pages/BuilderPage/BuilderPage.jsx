@@ -6,33 +6,27 @@ import Blockly from "blockly";
 import { useState } from "react";
 import toolboxes, { components, functions } from "../../../blockly/toolbox";
 import { ApplicationBar } from "../../components/ApplicationBar";
+import {
+  getInitialXml,
+  getScreenBlocksFromWorkspace,
+  getScreensOptions,
+  storeCurrentWorkspace,
+} from "../../utils";
 
 function BuilderPage() {
   const [currentWorkspace, setCurrentWorkspace] = useState(null);
   const [currentToolboxId, setCurrentToolboxId] = useState("0");
+  const [currentScreenId, setCurrentScreenId] = useState("0");
   const [currentCode, setCurrentCode] = useState(null);
-
-  function getInitialXml() {
-    const xml = window.localStorage.getItem("workspace");
-    if (xml) {
-      return xml;
-    }
-    return null;
-  }
 
   function updateCurrentWorkspace(workspace) {
     setCurrentWorkspace(workspace);
     storeCurrentWorkspace(workspace);
-    const code = Blockly.React.workspaceToCode(workspace);
+    const screenBlocks = getScreenBlocksFromWorkspace(workspace);
+    const screen = screenBlocks.find((s) => s.id === currentScreenId);
+    const code = Blockly.React.blockToCode(screen) || "";
     console.log(code);
     setCurrentCode(code);
-  }
-
-  function storeCurrentWorkspace(workspace) {
-    const xml = Blockly.Xml.domToPrettyText(
-      Blockly.Xml.workspaceToDom(workspace)
-    );
-    window.localStorage.setItem("workspace", xml);
   }
 
   const onCurrentToolboxChange = (id) => {
@@ -43,7 +37,6 @@ function BuilderPage() {
     const result = toolboxes.find(
       (toolbox) => toolbox.key === currentToolboxId
     );
-    console.log(result);
     return result;
   };
 
@@ -53,6 +46,9 @@ function BuilderPage() {
         onToolboxOptionChange={onCurrentToolboxChange}
         toolboxOptions={toolboxes}
         selectedToolboxId={currentToolboxId}
+        screens={getScreensOptions(currentWorkspace)}
+        currentScreenId={currentScreenId}
+        setCurrentScreenId={setCurrentScreenId}
       />
       <div className="builder-page">
         <div style={{ width: "50%" }}>
@@ -62,7 +58,7 @@ function BuilderPage() {
             toolbox={getCurrentToolBox()}
           />
         </div>
-        <div style={{ width: "50%" }}>
+        <div style={{ width: "50%", overflowY: "scroll" }}>
           <JsxParser
             bindings={functions}
             jsx={currentCode}

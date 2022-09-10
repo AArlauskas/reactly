@@ -10,7 +10,7 @@ function ToolBoxSelect({
       variant="standard"
       onChange={(e) => onToolboxOptionChange(e.target.value)}
       value={selectedToolboxId}
-      sx={{ minWidth: 100 }}
+      sx={{ minWidth: 150 }}
       label="Toolbox"
     >
       {toolboxOptions.map((option) => (

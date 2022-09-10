@@ -21,8 +21,4 @@ const compoentsContents = [
 const functionContents = [actionsCategoryContent];
 const stylingContents = modifierCategoryContent.contents;
 
-const mapChildrenContents = (contents) => {
-  const result = {};
-};
-
 export { compoentsContents, functionContents, stylingContents, contents };

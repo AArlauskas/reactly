@@ -1,9 +1,13 @@
+import PageSelect from "../PageSelect";
 import ToolBoxSelect from "../ToolboxSelect";
 
 function ApplicationBar({
   toolboxOptions,
   onToolboxOptionChange,
   selectedToolboxId,
+  currentScreenId,
+  setCurrentScreenId,
+  screens,
 }) {
   return (
     <>
@@ -21,7 +25,13 @@ function ApplicationBar({
             toolboxOptions={toolboxOptions}
           />
         </div>
-        <div></div>
+        <div>
+          <PageSelect
+            currentScreenId={currentScreenId}
+            screens={screens}
+            onChange={setCurrentScreenId}
+          />
+        </div>
         <div></div>
       </div>
       <hr style={{ padding: 0, margin: 0 }} />

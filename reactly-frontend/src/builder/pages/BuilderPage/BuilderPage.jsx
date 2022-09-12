@@ -18,6 +18,7 @@ function BuilderPage() {
   const [currentToolboxId, setCurrentToolboxId] = useState("0");
   const [currentScreenId, setCurrentScreenId] = useState("0");
   const [currentCode, setCurrentCode] = useState(null);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   function updateCurrentWorkspace(workspace) {
     setCurrentWorkspace(workspace);
@@ -49,16 +50,22 @@ function BuilderPage() {
         screens={getScreensOptions(currentWorkspace)}
         currentScreenId={currentScreenId}
         setCurrentScreenId={setCurrentScreenId}
+        isExpanded={isExpanded}
+        setIsExpanded={setIsExpanded}
       />
       <div className="builder-page">
-        <div style={{ width: "50%" }}>
-          <BlocklySplit
-            setCurrentWorkspace={updateCurrentWorkspace}
-            initialXml={getInitialXml()}
-            toolbox={getCurrentToolBox()}
-          />
-        </div>
-        <div style={{ width: "50%", overflowY: "scroll" }}>
+        {!isExpanded && (
+          <div style={{ width: "50%" }}>
+            <BlocklySplit
+              setCurrentWorkspace={updateCurrentWorkspace}
+              initialXml={getInitialXml()}
+              toolbox={getCurrentToolBox()}
+            />
+          </div>
+        )}
+        <div
+          style={{ width: isExpanded ? "100%" : "50%", overflowY: "scroll" }}
+        >
           <JsxParser
             bindings={functions}
             jsx={currentCode}

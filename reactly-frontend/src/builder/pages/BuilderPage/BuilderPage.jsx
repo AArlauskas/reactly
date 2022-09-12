@@ -52,6 +52,7 @@ function BuilderPage() {
         setCurrentScreenId={setCurrentScreenId}
         isExpanded={isExpanded}
         setIsExpanded={setIsExpanded}
+        code={currentCode}
       />
       <div className="builder-page">
         {!isExpanded && (

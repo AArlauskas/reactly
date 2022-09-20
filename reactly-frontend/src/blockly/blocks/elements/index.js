@@ -5,6 +5,7 @@ import "./typography";
 import "./break";
 import "./button";
 import "./div";
+import "./flex";
 
 import ListCategoryContent from "./lists";
 import LinksCategoryContent from "./links";
@@ -43,6 +44,10 @@ const elementsCategoryContent = {
     {
       kind: "block",
       type: "div",
+    },
+    {
+      kind: "block",
+      type: "flex",
     },
   ],
 };

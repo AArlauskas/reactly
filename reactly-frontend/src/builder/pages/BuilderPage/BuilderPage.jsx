@@ -6,6 +6,7 @@ import Blockly from "blockly";
 import { useState } from "react";
 import toolboxes, { components, functions } from "../../../blockly/toolbox";
 import { ApplicationBar } from "../../components/ApplicationBar";
+import { createTheme } from "@mui/material";
 import {
   getInitialXml,
   getScreenBlocksFromWorkspace,
@@ -19,6 +20,7 @@ function BuilderPage() {
   const [currentScreenId, setCurrentScreenId] = useState("0");
   const [currentCode, setCurrentCode] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [theme, setTheme] = useState(createTheme({}));
 
   function updateCurrentWorkspace(workspace) {
     setCurrentWorkspace(workspace);
@@ -41,6 +43,8 @@ function BuilderPage() {
     return result;
   };
 
+  const handleThemeChange = (thene) => setTheme(thene);
+
   return (
     <>
       <ApplicationBar
@@ -53,6 +57,7 @@ function BuilderPage() {
         isExpanded={isExpanded}
         setIsExpanded={setIsExpanded}
         code={currentCode}
+        onThemeChange={handleThemeChange}
       />
       <div className="builder-page">
         {!isExpanded && (
@@ -68,7 +73,7 @@ function BuilderPage() {
           style={{ width: isExpanded ? "100%" : "50%", overflowY: "scroll" }}
         >
           <JsxParser
-            bindings={functions}
+            bindings={{ ...functions, theme }}
             jsx={currentCode}
             components={components}
             onError={(error) => console.log(error)}

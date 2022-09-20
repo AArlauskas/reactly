@@ -4,6 +4,7 @@ import ListItemText from "./listItemText.component";
 import Divider from "./listDivider.component";
 import ImageList from "./imageList.component";
 import Typography from "./typography.component";
+import ThemeProvider from "./themeProvider.component";
 
 const components = {
   TopBar,
@@ -12,6 +13,7 @@ const components = {
   Divider,
   ImageList,
   Typography,
+  ThemeProvider,
 };
 
 export default components;

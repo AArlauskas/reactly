@@ -20,35 +20,37 @@ Blockly.React["page"] = (block) => {
   const footer = Blockly.React.statementToCode(block, "PAGE_FOOTER");
 
   const code = [];
+  code.push(`<ThemeProvider theme={theme}>`);
   code.push(`<div className="page ${pageName}">`);
   code.push(addPageHeader(header));
   code.push(addPageContent(pageContent));
   code.push(addPageFooter(footer));
   code.push(`</div>`);
+  code.push(`</ThemeProvider>`);
 
   return code.join("\n");
 };
 
 function addPageHeader(header) {
   const code = [];
-  code.push(`<div className="page-header">`);
-  code.push(header);
-  code.push(`</div>`);
+  code.push(`${Blockly.React.INDENT}<div className="page-header">`);
+  code.push(`${Blockly.React.INDENT.repeat(2)}${header}`);
+  code.push(`${Blockly.React.INDENT}</div>`);
   return code.join("\n");
 }
 
 function addPageContent(content) {
   const code = [];
-  code.push(`<div className="page-content">`);
-  code.push(content);
-  code.push(`</div>`);
+  code.push(`${Blockly.React.INDENT}<div className="page-content">`);
+  code.push(`${Blockly.React.INDENT.repeat(2)}${content}`);
+  code.push(`${Blockly.React.INDENT}</div>`);
   return code.join("\n");
 }
 
 function addPageFooter(footer) {
   const code = [];
-  code.push(`<div className="page-footer">`);
-  code.push(footer);
-  code.push(`</div>`);
+  code.push(`${Blockly.React.INDENT}<div className="page-footer">`);
+  code.push(`${Blockly.React.INDENT.repeat(2)}${footer}`);
+  code.push(`${Blockly.React.INDENT}</div>`);
   return code.join("\n");
 }

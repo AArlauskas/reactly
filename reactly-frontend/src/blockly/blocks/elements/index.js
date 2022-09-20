@@ -2,6 +2,7 @@ import "./image";
 import "./topBar";
 import "./imageList";
 import "./typography";
+import "./break";
 
 import ListCategoryContent from "./lists";
 import LinksCategoryContent from "./links";
@@ -28,6 +29,10 @@ const elementsCategoryContent = {
     {
       kind: "block",
       type: "typography",
+    },
+    {
+      kind: "block",
+      type: "break",
     },
   ],
 };

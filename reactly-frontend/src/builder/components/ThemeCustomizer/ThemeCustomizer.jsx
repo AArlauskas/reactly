@@ -11,7 +11,6 @@ import {
   ListItemSecondaryAction,
   ListItemText,
   Switch,
-  TextField,
   Typography,
 } from "@mui/material";
 import { useEffect } from "react";
@@ -29,31 +28,36 @@ const style = {
   p: 2,
 };
 
+const handleThemeChange = (
+  darkMode,
+  primaryColor,
+  secondaryColor,
+  onThemeChange
+) => {
+  const theme = createTheme({
+    palette: {
+      mode: darkMode ? "dark" : "light",
+      primary: {
+        main: primaryColor,
+      },
+      secondary: {
+        main: secondaryColor,
+      },
+    },
+  });
+  onThemeChange(theme);
+};
+
 function ThemeCustomizer({ onThemeChange, isOpen, onClose }) {
   const [darkMode, setDarkMode] = React.useState(false);
   const [primaryColor, setPrimaryColor] = React.useState("#3f51b5");
   const [secondaryColor, setSecondaryColor] = React.useState("#f50057");
 
-  useEffect(() => {
-    handleThemeChange();
-  }, [darkMode, primaryColor, secondaryColor]);
-
   const handleDarkModeChange = (event) => setDarkMode(event.target.checked);
 
-  const handleThemeChange = () => {
-    const theme = createTheme({
-      palette: {
-        mode: darkMode ? "dark" : "light",
-        primary: {
-          main: primaryColor,
-        },
-        secondary: {
-          main: secondaryColor,
-        },
-      },
-    });
-    onThemeChange(theme);
-  };
+  useEffect(() => {
+    handleThemeChange(darkMode, primaryColor, secondaryColor, onThemeChange);
+  }, [darkMode, primaryColor, secondaryColor, onThemeChange]);
 
   return (
     <Modal
@@ -73,18 +77,19 @@ function ThemeCustomizer({ onThemeChange, isOpen, onClose }) {
             <ListItem>
               <ListItemText>Dark mode</ListItemText>
               <ListItemSecondaryAction>
-                <Switch value={darkMode} onChange={handleDarkModeChange} />
-              </ListItemSecondaryAction>
-            </ListItem>
-            {/* <ListItem>
-              <ListItemText>Primary color</ListItemText>
-              <ListItemSecondaryAction>
-                <SketchPicker
-                  color={primaryColor}
-                  onChange={(color) => setPrimaryColor(color.hex)}
+                <Switch
+                  value={darkMode}
+                  onChange={() =>
+                    handleDarkModeChange(
+                      darkMode,
+                      primaryColor,
+                      secondaryColor,
+                      onThemeChange
+                    )
+                  }
                 />
               </ListItemSecondaryAction>
-            </ListItem> */}
+            </ListItem>
           </List>
           <Grid container spacing={2}>
             <Grid item xs={6}>

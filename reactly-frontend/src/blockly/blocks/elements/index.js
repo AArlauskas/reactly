@@ -4,6 +4,7 @@ import "./imageList";
 import "./typography";
 import "./break";
 import "./button";
+import "./div";
 
 import ListCategoryContent from "./lists";
 import LinksCategoryContent from "./links";
@@ -38,6 +39,10 @@ const elementsCategoryContent = {
     {
       kind: "block",
       type: "button",
+    },
+    {
+      kind: "block",
+      type: "div",
     },
   ],
 };

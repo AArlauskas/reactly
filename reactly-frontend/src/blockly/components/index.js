@@ -5,6 +5,7 @@ import Divider from "./listDivider.component";
 import ImageList from "./imageList.component";
 import Typography from "./typography.component";
 import ThemeProvider from "./themeProvider.component";
+import Button from "./button.component";
 
 const components = {
   TopBar,
@@ -14,6 +15,7 @@ const components = {
   ImageList,
   Typography,
   ThemeProvider,
+  Button,
 };
 
 export default components;

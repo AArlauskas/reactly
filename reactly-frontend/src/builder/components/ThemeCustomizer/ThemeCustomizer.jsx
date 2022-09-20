@@ -28,26 +28,6 @@ const style = {
   p: 2,
 };
 
-const handleThemeChange = (
-  darkMode,
-  primaryColor,
-  secondaryColor,
-  onThemeChange
-) => {
-  const theme = createTheme({
-    palette: {
-      mode: darkMode ? "dark" : "light",
-      primary: {
-        main: primaryColor,
-      },
-      secondary: {
-        main: secondaryColor,
-      },
-    },
-  });
-  onThemeChange(theme);
-};
-
 function ThemeCustomizer({ onThemeChange, isOpen, onClose }) {
   const [darkMode, setDarkMode] = React.useState(false);
   const [primaryColor, setPrimaryColor] = React.useState("#3f51b5");
@@ -56,8 +36,25 @@ function ThemeCustomizer({ onThemeChange, isOpen, onClose }) {
   const handleDarkModeChange = (event) => setDarkMode(event.target.checked);
 
   useEffect(() => {
-    handleThemeChange(darkMode, primaryColor, secondaryColor, onThemeChange);
-  }, [darkMode, primaryColor, secondaryColor, onThemeChange]);
+    handleThemeChange();
+    console.log("theme changed");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [darkMode, primaryColor, secondaryColor]);
+
+  function handleThemeChange() {
+    const theme = createTheme({
+      palette: {
+        mode: darkMode ? "dark" : "light",
+        primary: {
+          main: primaryColor,
+        },
+        secondary: {
+          main: secondaryColor,
+        },
+      },
+    });
+    onThemeChange(theme);
+  }
 
   return (
     <Modal
@@ -79,14 +76,7 @@ function ThemeCustomizer({ onThemeChange, isOpen, onClose }) {
               <ListItemSecondaryAction>
                 <Switch
                   value={darkMode}
-                  onChange={() =>
-                    handleDarkModeChange(
-                      darkMode,
-                      primaryColor,
-                      secondaryColor,
-                      onThemeChange
-                    )
-                  }
+                  onChange={() => handleDarkModeChange()}
                 />
               </ListItemSecondaryAction>
             </ListItem>

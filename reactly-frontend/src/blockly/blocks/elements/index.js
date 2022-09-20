@@ -3,6 +3,7 @@ import "./topBar";
 import "./imageList";
 import "./typography";
 import "./break";
+import "./button";
 
 import ListCategoryContent from "./lists";
 import LinksCategoryContent from "./links";
@@ -33,6 +34,10 @@ const elementsCategoryContent = {
     {
       kind: "block",
       type: "break",
+    },
+    {
+      kind: "block",
+      type: "button",
     },
   ],
 };

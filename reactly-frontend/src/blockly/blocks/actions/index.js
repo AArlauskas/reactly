@@ -1,4 +1,5 @@
 import "./showAlert";
+import "./navigateInside";
 import "./navigateOutside";
 
 const actionsCategoryContent = {
@@ -9,6 +10,10 @@ const actionsCategoryContent = {
     {
       kind: "block",
       type: "showAlert",
+    },
+    {
+      kind: "block",
+      type: "navigateInside",
     },
     {
       kind: "block",

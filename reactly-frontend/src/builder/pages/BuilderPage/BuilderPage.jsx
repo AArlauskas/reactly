@@ -13,6 +13,12 @@ import {
   getScreensOptions,
   storeCurrentWorkspace,
 } from "../../utils";
+import { getScreens } from "../../utils/screen";
+import { generatePage } from "../../utils/page-builder";
+import { generateRoot } from "../../utils/root-builder";
+
+import { downloadZippedProject } from "../../api/api";
+import { generateThemeFile } from "../../utils/theme-builder";
 
 function BuilderPage() {
   const [currentWorkspace, setCurrentWorkspace] = useState(null);
@@ -20,7 +26,7 @@ function BuilderPage() {
   const [currentScreenId, setCurrentScreenId] = useState("0");
   const [currentCode, setCurrentCode] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [theme, setTheme] = useState(createTheme({}));
+  const [theme, setTheme] = useState(null);
 
   function updateCurrentWorkspace(workspace) {
     setCurrentWorkspace(workspace);
@@ -45,6 +51,25 @@ function BuilderPage() {
 
   const handleThemeChange = (thene) => setTheme(thene);
 
+  const generateTheme = () => {
+    if (theme === null) return createTheme({});
+    return createTheme(theme);
+  };
+
+  const onDownloadClick = () => {
+    const screens = getScreens(currentWorkspace);
+    const pages = screens.map((screen) =>
+      generatePage(screen.name, screen.content, JSON.stringify(theme))
+    );
+    const root = generateRoot(screens);
+    const websiteTheme = generateThemeFile(theme);
+    const requestBody = { root, pages, theme: websiteTheme };
+    downloadZippedProject(requestBody);
+    alert(
+      "Please unzip the projec and read the README file for instructions of how to start the project"
+    );
+  };
+
   return (
     <>
       <ApplicationBar
@@ -58,6 +83,7 @@ function BuilderPage() {
         setIsExpanded={setIsExpanded}
         code={currentCode}
         onThemeChange={handleThemeChange}
+        onDownloadClick={onDownloadClick}
       />
       <div className="builder-page">
         {!isExpanded && (
@@ -73,7 +99,7 @@ function BuilderPage() {
           style={{ width: isExpanded ? "100%" : "50%", overflowY: "scroll" }}
         >
           <JsxParser
-            bindings={{ ...functions, theme }}
+            bindings={{ ...functions, theme: generateTheme() }}
             jsx={currentCode}
             components={components}
             onError={(error) => console.log(error)}

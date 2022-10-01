@@ -1,6 +1,11 @@
 import PageSelect from "../PageSelect";
 import ToolBoxSelect from "../ToolboxSelect";
-import { CloseFullscreen, OpenInFull, Settings } from "@mui/icons-material";
+import {
+  CloseFullscreen,
+  Download,
+  OpenInFull,
+  Settings,
+} from "@mui/icons-material";
 import CodeIcon from "@mui/icons-material/Code";
 import Fab from "../Fab";
 import { useState } from "react";
@@ -18,13 +23,13 @@ function ApplicationBar({
   setIsExpanded,
   code,
   onThemeChange,
+  onDownloadClick,
 }) {
   const [isCodeViewerOpen, setIsCodeViewerOpen] = useState(false);
   const [isThemeSettingsOpen, setIsThemeSettingsOpen] = useState(false);
 
   return (
     <>
-      {console.log(isCodeViewerOpen)}
       <div
         style={{
           display: "flex",
@@ -70,6 +75,11 @@ function ApplicationBar({
             FabIcon={Settings}
             label="Theme settings"
             onClick={() => setIsThemeSettingsOpen(true)}
+          />
+          <Fab
+            FabIcon={Download}
+            label="Download project"
+            onClick={() => onDownloadClick()}
           />
         </div>
       </div>

@@ -50,9 +50,9 @@ Blockly.React["typography"] = (block) => {
   );
 
   code.push(
-    `<Typography variant={"${variant}"} text={"${text}"} modifiers={{${modifiers}}} onClick={${
-      onClick || "() => {}"
-    }} />`
+    `<Typography variant={"${variant}"} text={"${text}"} modifiers={{${modifiers} ${
+      onClick && `cursor: "pointer"`
+    }}} onClick={${onClick || "() => {}"}} />`
   );
   return code.join("\n");
 };

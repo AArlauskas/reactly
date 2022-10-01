@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import {
-  createTheme,
   Grid,
   List,
   ListItem,
@@ -37,12 +36,11 @@ function ThemeCustomizer({ onThemeChange, isOpen, onClose }) {
 
   useEffect(() => {
     handleThemeChange();
-    console.log("theme changed");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [darkMode, primaryColor, secondaryColor]);
 
   function handleThemeChange() {
-    const theme = createTheme({
+    const theme = {
       palette: {
         mode: darkMode ? "dark" : "light",
         primary: {
@@ -52,7 +50,7 @@ function ThemeCustomizer({ onThemeChange, isOpen, onClose }) {
           main: secondaryColor,
         },
       },
-    });
+    };
     onThemeChange(theme);
   }
 

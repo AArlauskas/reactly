@@ -36,9 +36,9 @@ Blockly.React["listItemText"] = (block) => {
   );
 
   code.push(
-    `<ListItemText primaryText={"${primaryText}"} secondaryText={"${secondaryText}"} modifiers={{${modifiers}}} onClick={${
-      onClick || "() => {}"
-    }}/>`
+    `<ListItemText primaryText={"${primaryText}"} secondaryText={"${secondaryText}"} modifiers={{${modifiers} ${
+      onClick && `cursor: "pointer"`
+    }}} onClick={${onClick || "() => {}"}}/>`
   );
   return code.join("\n");
 };

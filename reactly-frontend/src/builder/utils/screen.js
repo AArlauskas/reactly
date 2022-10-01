@@ -1,3 +1,5 @@
+import Blockly from "blockly";
+
 function getScreenBlocksFromWorkspace(workspace) {
   if (workspace)
     return workspace
@@ -14,4 +16,12 @@ function getScreensOptions(workspace) {
   }));
 }
 
-export { getScreenBlocksFromWorkspace, getScreensOptions };
+function getScreens(workspace) {
+  const screens = getScreenBlocksFromWorkspace(workspace);
+  return screens.map((screen) => ({
+    name: screen.getFieldValue("PAGE_NAME"),
+    content: Blockly.React.blockToCode(screen) || "",
+  }));
+}
+
+export { getScreenBlocksFromWorkspace, getScreensOptions, getScreens };

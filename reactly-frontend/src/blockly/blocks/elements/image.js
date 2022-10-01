@@ -32,9 +32,9 @@ Blockly.React["image"] = (block) => {
     Blockly.React.ORDER_ATOMIC
   );
   code.push(
-    `<img src={"${image}"} alt={"${alt}"} style={{${modifiers}}} onClick={${
-      onClick || "() => {}"
-    }} />`
+    `<img src={"${image}"} alt={"${alt}"} modifiers={{${modifiers} ${
+      onClick && `cursor: "pointer"`
+    }}} onClick={${onClick || "() => {}"}} />`
   );
   return code.join("\n");
 };

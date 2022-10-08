@@ -66,7 +66,7 @@ function BuilderPage() {
     const requestBody = { root, pages, theme: websiteTheme };
     downloadZippedProject(requestBody);
     alert(
-      "Please unzip the projec and read the README file for instructions of how to start the project"
+      "Please unzip the project and run the start script"
     );
   };
 

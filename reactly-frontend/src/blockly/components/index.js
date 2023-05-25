@@ -6,6 +6,7 @@ import ImageList from "./imageList.component";
 import Typography from "./typography.component";
 import ThemeProvider from "./themeProvider.component";
 import Button from "./button.component";
+import Table from "./table.component";
 
 const components = {
   TopBar,
@@ -16,6 +17,7 @@ const components = {
   Typography,
   ThemeProvider,
   Button,
+  Table,
 };
 
 export default components;

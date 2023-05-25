@@ -7,7 +7,6 @@ const navigateMenuGenerator = (block) => () => {
       const screenName = block.getFieldValue("PAGE_NAME");
       return [screenName, screenName];
     });
-  console.log(block);
   if (screenOptions.length !== 0) {
     return screenOptions;
   } else {

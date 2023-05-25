@@ -1,8 +1,10 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8080/api",
-  headers: {
+  // baseURL: "http://localhost:8080/api",
+  baseURL: "https://reactly-backend.herokuapp.com/api",
+
+  Headers: {
     "Content-Type": "application/json",
   },
 });
@@ -27,3 +29,14 @@ export const downloadZippedProject = (data) =>
       document.body.removeChild(link);
       URL.revokeObjectURL(href);
     });
+
+export const register = (data) => api.post("/users/register", data);
+
+export const login = (data) => api.post("/users/authenticate", data);
+
+export const getIdentity = (token) =>
+  api.get("/users/personal", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });

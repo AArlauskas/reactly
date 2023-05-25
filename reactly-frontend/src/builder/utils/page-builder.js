@@ -8,6 +8,7 @@ const IMPORTS = [
   "import ThemeProvider from '../components/themeProvider.component'",
   "import Button from '../components/button.component'",
   "import navigateOutside from '../functions/navigateOutside'",
+  "import Table from '../components/table.component'",
   "import showAlert from '../functions/showAlert'",
   "import { useNavigate } from 'react-router-dom'",
   "import {createTheme} from '@mui/material'",

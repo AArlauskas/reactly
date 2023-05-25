@@ -27,6 +27,8 @@ Blockly.React["linkOutside"] = (block) => {
   );
   const modifiers = Blockly.React.statementToCode(block, "MODIFIERS");
 
-  code.push(`<a href={"${link}"} style={{${modifiers}}} >${text}</a>`);
+  code.push(
+    `<a href={"${link}"} style={{${modifiers}}} >${text.join("\n")}</a>`
+  );
   return code.join("\n");
 };

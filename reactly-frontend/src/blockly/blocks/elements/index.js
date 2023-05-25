@@ -9,6 +9,7 @@ import "./flex";
 
 import ListCategoryContent from "./lists";
 import LinksCategoryContent from "./links";
+import tableCategoryContent from "./table";
 
 const elementsCategoryContent = {
   kind: "category",
@@ -17,6 +18,7 @@ const elementsCategoryContent = {
   contents: [
     ListCategoryContent,
     LinksCategoryContent,
+    tableCategoryContent,
     {
       kind: "block",
       type: "image",

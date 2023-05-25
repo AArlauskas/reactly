@@ -11,7 +11,8 @@ function ToolBoxSelect({
       onChange={(e) => onToolboxOptionChange(e.target.value)}
       value={selectedToolboxId}
       sx={{ minWidth: 150 }}
-      label="Toolbox"
+      label="Toolbox" 
+      className="toolbox-select"
     >
       {toolboxOptions.map((option) => (
         <MenuItem key={option.key} value={option.key}>

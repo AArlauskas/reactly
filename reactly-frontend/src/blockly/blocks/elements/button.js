@@ -38,7 +38,7 @@ Blockly.React["button"] = (block) => {
   const modifiers = Blockly.React.statementToCode(block, "MODIFIERS");
 
   code.push(
-    `<Button variant={"${variant}"} text={"${text}"} modifiers={{${modifiers} ${
+    `<Button variant={"${variant}"} text={${text}} modifiers={{${modifiers} ${
       onClick && `cursor: "pointer"`
     }}} onClick={${onClick || "() => {}"}} />`
   );

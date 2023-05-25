@@ -1,4 +1,5 @@
 import alignmentCategoryContent from "./alignment";
+import borderCategoryContent from "./border";
 import colorsCategoryContent from "./colors";
 import dimensionsCategoryContent from "./dimensions";
 import marginsCategoryContent from "./margins";
@@ -14,6 +15,7 @@ const modifierCategoryContent = {
     dimensionsCategoryContent,
     colorsCategoryContent,
     alignmentCategoryContent,
+    borderCategoryContent,
   ],
 };
 

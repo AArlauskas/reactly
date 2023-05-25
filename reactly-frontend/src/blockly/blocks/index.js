@@ -4,6 +4,7 @@ import pagesCategoryContent from "./pages";
 import inputsCategoryContent from "./inputs";
 import modifierCategoryContent from "./modifiers";
 import actionsCategoryContent from "./actions";
+import customCategoryContent from "./custom";
 
 const contents = [
   elementsCategoryContent,
@@ -11,6 +12,7 @@ const contents = [
   inputsCategoryContent,
   actionsCategoryContent,
   modifierCategoryContent,
+  customCategoryContent,
 ];
 
 const compoentsContents = [

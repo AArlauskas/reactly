@@ -14,5 +14,6 @@ Blockly.Blocks["text"] = {
 
 Blockly.React["text"] = (block) => {
   const text = block.getFieldValue("TEXT_OUTPUT");
-  return [text, Blockly.React.ORDER_ATOMIC];
+  const splittedText = JSON.stringify(text.split("\n"));
+  return [splittedText, Blockly.React.ORDER_ATOMIC];
 };

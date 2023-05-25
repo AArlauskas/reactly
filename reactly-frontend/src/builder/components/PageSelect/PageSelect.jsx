@@ -7,6 +7,7 @@ function PageSelect({ currentScreenId, onChange, screens }) {
       value={currentScreenId}
       onChange={(e) => onChange(e.target.value)}
       sx={{ minWidth: 150 }}
+      className="page-select"
     >
       <MenuItem value="0">Select a screen</MenuItem>
       {screens.map((screen) => (
